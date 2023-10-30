@@ -2,7 +2,7 @@ const Product = require('../models/product'); // Import the product model
 
 
 
-// Create a new product
+
 exports.createProduct = async (req, res) => {
   try {
     const product = new Product(req.body);
@@ -13,7 +13,7 @@ exports.createProduct = async (req, res) => {
   }
 };
 
-// Get a list of all products
+
 exports.getProducts = async (req, res) => {
     try {
       const products = await Product.find({}, 'name description price quantity');
@@ -24,7 +24,7 @@ exports.getProducts = async (req, res) => {
   };
   
 
-// Get a product by ID
+
 exports.getProductById = async (req, res) => {
   try {
     const productId = req.params.id;
@@ -40,7 +40,7 @@ exports.getProductById = async (req, res) => {
   }
 };
 
-// Update a product by ID
+
 exports.updateProductById = async (req, res) => {
   try {
     const productId = req.params.id;
@@ -56,7 +56,7 @@ exports.updateProductById = async (req, res) => {
   }
 };
 
-// Remove a product by ID
+
 exports.removeProductById = async (req, res) => {
   try {
     const productId = req.params.id;
@@ -72,7 +72,7 @@ exports.removeProductById = async (req, res) => {
   }
 };
 
-// Remove all products
+
 exports.removeAllProducts = async (req, res) => {
   try {
     const deletedProducts = await Product.deleteMany({});
@@ -82,7 +82,7 @@ exports.removeAllProducts = async (req, res) => {
   }
 };
 
-// Find all published products (if you have a "published" field)
+
 exports.findPublishedProducts = async (req, res) => {
   try {
     const publishedProducts = await Product.find({ published: true });
@@ -92,7 +92,6 @@ exports.findPublishedProducts = async (req, res) => {
   }
 };
 
-// Find all products whose name contains a keyword (case-insensitive)
 exports.findProductsByNameContains = async (req, res) => {
   try {
     const keyword = req.query.keyword || '';
